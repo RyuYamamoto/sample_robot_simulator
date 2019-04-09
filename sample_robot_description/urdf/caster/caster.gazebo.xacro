@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot
+    xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="caster_gazebo">
+        <gazebo reference="caster_link">
+            <mu1>0</mu1>
+            <mu2>0</mu2>
+        </gazebo>
+    </xacro:macro>
+</robot>
