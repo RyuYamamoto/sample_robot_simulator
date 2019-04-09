@@ -1,41 +1,46 @@
 <?xml version="1.0"?>
 <robot name="sample_robot" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find sample_robot_description)/urdf/body/body.urdf.xacro"/>
-  <xacro:include filename="$(find sample_robot_description)/urdf/wheel/wheel.urdf.xacro"/>
-  <xacro:include filename="$(find sample_robot_description)/urdf/caster/caster.urdf.xacro"/>
-  <link name="base_footprint"/>
+	<xacro:include filename="$(find sample_robot_description)/urdf/body/body.urdf.xacro"/>
+	<xacro:include filename="$(find sample_robot_description)/urdf/wheel/wheel.urdf.xacro"/>
+	<xacro:include filename="$(find sample_robot_description)/urdf/caster/caster.urdf.xacro"/>
+	<link name="base_footprint"/>
 
-  <xacro:base parent="base_footprint">
-    <origin xyz="0 0 0"/>
-  </xacro:base>
+	<xacro:base parent="base_footprint">
+		<origin xyz="0 0 0"/>
+	</xacro:base>
 
-  <xacro:wheel prefix="right" parent="base_link">
-    <origin xyz="0.1 -0.17 0.0" rpy="1.57 0 0" />
-    <axis xyz="0 0 -1" />
-  </xacro:wheel>
-  
-  <xacro:wheel prefix="left" parent="base_link">
-    <origin xyz="0.1 0.17 0.0" rpy="-1.57 0 0" />
-    <axis xyz="0 0 1" />
-  </xacro:wheel>
+	<xacro:wheel prefix="right" parent="base_link">
+		<origin xyz="0.1 -0.17 0.0" rpy="1.57 0 0" />
+		<axis xyz="0 0 -1" />
+	</xacro:wheel>
 
-  <xacro:caster parent="base_link">
-    <origin xyz="-0.15 0 -0.05"/>
-  </xacro:caster>
-  
-  <!-- ===========  Transmission ============ -->
-  <xacro:wheel_trans prefix="right" />
-  <xacro:wheel_trans prefix="left" />
+	<xacro:wheel prefix="left" parent="base_link">
+		<origin xyz="0.1 0.17 0.0" rpy="-1.57 0 0" />
+		<axis xyz="0 0 1" />
+	</xacro:wheel>
 
-  <!-- =============== Gazebo =============== -->
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>sample_robot</robotNamespace>
-    </plugin>
-  </gazebo>
+	<xacro:caster parent="base_link">
+		<origin xyz="-0.15 0 -0.05"/>
+	</xacro:caster>
 
-  <xacro:body_gazebo/>
-  <xacro:wheel_gazebo prefix="right" />
-  <xacro:wheel_gazebo prefix="left" />
-  <xacro:caster_gazebo/>
+	<xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro" />
+	<VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points">
+		<origin xyz="0 0 0.052" rpy="0 0 0" />
+	</VLP-16>
+
+	<!-- ===========  Transmission ============ -->
+	<xacro:wheel_trans prefix="right" />
+	<xacro:wheel_trans prefix="left" />
+
+	<!-- =============== Gazebo =============== -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>sample_robot</robotNamespace>
+		</plugin>
+	</gazebo>
+
+	<xacro:body_gazebo/>
+	<xacro:wheel_gazebo prefix="right" />
+	<xacro:wheel_gazebo prefix="left" />
+	<xacro:caster_gazebo/>
 </robot>
