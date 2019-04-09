@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>	
-  <arg name="model" default="$(find sample_robot_description)/urdf/sample_robot.urdf"/>
+  <arg name="model" default="$(find sample_robot_description)/urdf/robot/robot.urdf.xacro"/>
    
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
