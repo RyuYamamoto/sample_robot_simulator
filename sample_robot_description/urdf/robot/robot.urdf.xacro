@@ -3,6 +3,8 @@
 	<xacro:include filename="$(find sample_robot_description)/urdf/body/body.urdf.xacro"/>
 	<xacro:include filename="$(find sample_robot_description)/urdf/wheel/wheel.urdf.xacro"/>
 	<xacro:include filename="$(find sample_robot_description)/urdf/caster/caster.urdf.xacro"/>
+	<xacro:include filename="$(find sample_robot_description)/urdf/sensor/imu.gazebo.xacro"/>
+	
 	<link name="base_footprint"/>
 
 	<xacro:base parent="base_footprint">
@@ -38,6 +40,8 @@
 			<robotNamespace>sample_robot</robotNamespace>
 		</plugin>
 	</gazebo>
+
+	<xacro:imu prefix="imu" parent="base_link" xyz="0 0 0" />
 
 	<xacro:body_gazebo/>
 	<xacro:wheel_gazebo prefix="right" />
