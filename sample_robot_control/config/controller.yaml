@@ -40,8 +40,8 @@ sample_robot:
     angular:
       z:
         has_velocity_limits    : true
-        max_velocity           : 0.3  # rad/s
-        min_velocity           : -0.3
+        max_velocity           : 0.55  # rad/s
+        min_velocity           : -0.55
         has_acceleration_limits: true
         max_acceleration       : 0.3  # rad/s^2
         min_acceleration       : -0.3
