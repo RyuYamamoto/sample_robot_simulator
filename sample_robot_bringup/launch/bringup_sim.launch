@@ -18,4 +18,6 @@
 		args="-urdf -model sample_robot -param robot_description"/>
 
 	<include file="$(find sample_robot_bringup)/launch/robot_viewer.launch" />
+
+	<include file="$(find sample_robot_teleop)/launch/sample_robot_teleop.launch" />
 </launch>
