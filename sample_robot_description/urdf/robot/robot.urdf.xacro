@@ -26,9 +26,13 @@
 	</xacro:caster>
 
 	<xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro" />
-	<VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points">
-		<origin xyz="0 0 0.052" rpy="0 0 0" />
+	<VLP-16 parent="base_link" name="velodyne_front" topic="/front_points_raw" gpu="true" hz="10">
+		<origin xyz="0.2 0 0.052" rpy="0 0 0" />
 	</VLP-16>
+	<VLP-16 parent="base_link" name="velodyne_back" topic="/back_points_raw" gpu="true" hz="10">
+		<origin xyz="-0.2 0 0.052" rpy="0 0 0" />
+	</VLP-16>
+
 
 	<!-- ===========  Transmission ============ -->
 	<xacro:wheel_trans prefix="right" />
