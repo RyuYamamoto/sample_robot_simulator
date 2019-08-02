@@ -20,6 +20,7 @@
 	<run_depend>sample_robot_bringup</run_depend>
 	<run_depend>sample_robot_control</run_depend>
 	<run_depend>sample_robot_description</run_depend>
+	<run_depend>sample_robot_teleop</run_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
