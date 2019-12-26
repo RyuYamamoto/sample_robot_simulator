@@ -3,6 +3,7 @@
 	<xacro:include filename="$(find sample_robot_description)/urdf/body/body.urdf.xacro"/>
 	<xacro:include filename="$(find sample_robot_description)/urdf/wheel/wheel.urdf.xacro"/>
 	<xacro:include filename="$(find sample_robot_description)/urdf/caster/caster.urdf.xacro"/>
+	<xacro:include filename="$(find sample_robot_description)/urdf/sensor/hokuyo.urdf.xacro"/>
 	<xacro:include filename="$(find sample_robot_description)/urdf/sensor/imu.gazebo.xacro"/>
 	
 	<link name="base_footprint"/>
@@ -25,6 +26,8 @@
 		<origin xyz="-0.15 0 -0.05"/>
 	</xacro:caster>
 
+	<!-- velodyne -->
+	<!--
 	<xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro" />
 	<VLP-16 parent="base_link" name="velodyne_front" topic="/front_points_raw" gpu="true" hz="10">
 		<origin xyz="0.2 0 0.052" rpy="0 0 0" />
@@ -32,7 +35,12 @@
 	<VLP-16 parent="base_link" name="velodyne_back" topic="/back_points_raw" gpu="true" hz="10">
 		<origin xyz="-0.2 0 0.052" rpy="0 0 0" />
 	</VLP-16>
+	-->
 
+	<!-- Hokuyo -->
+	<xacro:hokuyo parent="base_link">
+		<origin xyz="0.2 0 0.07" rpy="0 0 0"/>
+	</xacro:hokuyo>
 
 	<!-- ===========  Transmission ============ -->
 	<xacro:wheel_trans prefix="right" />
