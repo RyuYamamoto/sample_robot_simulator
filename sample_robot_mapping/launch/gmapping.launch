@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+	<arg name="scan_topic" default="scan" />	
+	
+	<node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+		<remap from="scan" to="$(arg scan_topic)" />
+	</node>
+
+	<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard">
+		<remap from="cmd_vel" to="sample_robot/diff_drive/controller/cmd_vel" />
+	</node>
+</launch>
