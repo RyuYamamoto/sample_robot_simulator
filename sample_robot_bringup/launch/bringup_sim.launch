@@ -17,5 +17,7 @@
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 		args="-urdf -x -9 -y -17 -z 0.88 -Y 1.57 -model sample_robot -param robot_description"/>
 
-	<node name="rviz" pkg="rviz" type="rviz" args="$(find sample_robot_bringup)/config/sample_robot.rviz"/>
+	<include file="$(find sample_robot_2d_navigation)/launch/move_base.launch" />
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find sample_robot_bringup)/config/sample_robot.rviz"/>
 </launch>
