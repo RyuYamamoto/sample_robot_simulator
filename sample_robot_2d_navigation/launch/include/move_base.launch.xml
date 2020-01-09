@@ -1,5 +1,5 @@
 <launch>
-	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" args="cmd_vel:=/sample_robot/diff_drive_controller/cmd_vel">
 		<rosparam file="$(find sample_robot_2d_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
 		<rosparam file="$(find sample_robot_2d_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
 		<rosparam file="$(find sample_robot_2d_navigation)/param/local_costmap_params.yaml" command="load" ns="local_costmap" /> 

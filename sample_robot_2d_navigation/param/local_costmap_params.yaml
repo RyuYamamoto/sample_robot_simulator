@@ -1,5 +1,5 @@
-global_frame: odom
-robot_base_frame: base_link
+global_frame: odom 
+robot_base_frame: base_footprint
 
 rolling_window: true
 update_frequency: 2.0
