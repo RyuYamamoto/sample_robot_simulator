@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="model" default="$(find sample_robot_description)/urdf/robot/robot.urdf.xacro"/>
+	<arg name="model" default="$(find sample_robot_description)/urdf/robot/robot_vlp16.urdf.xacro"/>
 
 	<arg name="paused" default="false"/>
 	<arg name="use_sim_time" default="true"/>
@@ -17,7 +17,5 @@
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 		args="-urdf -x -9 -y -17 -z 0.88 -Y 1.57 -model sample_robot -param robot_description"/>
 
-	<include file="$(find sample_robot_2d_navigation)/launch/move_base.launch" />
-
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find sample_robot_bringup)/config/sample_robot.rviz"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find sample_robot_bringup)/config/sample_robot_vlp16.rviz"/>
 </launch>
