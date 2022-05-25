@@ -5,6 +5,8 @@
     <!--include file="$(find sample_robot_2d_navigation)/launch/include/amcl.launch.xml"/-->
     <!--include file="$(find sample_robot_2d_navigation)/launch/include/move_base.launch.xml"/-->
     <include file="$(find als_ros)/launch/mcl.launch">
+        <arg name="odom_name" value="/sample_robot/diff_drive_controller/odom"/>
+        <arg name="laser_frame" value="hokuyo_link"/>
         <arg name="use_gl_pose_sampler" value="true"/>
         <arg name="use_mrf_failure_detector" value="true"/>
     </include>
