@@ -2,6 +2,10 @@
 <launch>
     <arg name="map_file" default="$(find sample_robot_2d_navigation)/map/map.yaml"/>
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
-    <include file="$(find sample_robot_2d_navigation)/launch/include/amcl.launch.xml"/>
-    <include file="$(find sample_robot_2d_navigation)/launch/include/move_base.launch.xml"/>
+    <!--include file="$(find sample_robot_2d_navigation)/launch/include/amcl.launch.xml"/-->
+    <!--include file="$(find sample_robot_2d_navigation)/launch/include/move_base.launch.xml"/-->
+    <include file="$(find als_ros)/launch/mcl.launch">
+        <arg name="use_gl_pose_sampler" value="true"/>
+        <arg name="use_mrf_failure_detector" value="true"/>
+    </include>
 </launch>

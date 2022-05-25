@@ -10,11 +10,11 @@
 
 	<include file="$(find gazebo_ros)/launch/willowgarage_world.launch" />
 
-	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)"/>
+	<param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
 
 	<include file="$(find sample_robot_control)/launch/sample_robot_control.launch"/>
 
-	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="true" output="screen"
 		args="-urdf -x -9 -y -17 -z 0.88 -Y 1.57 -model sample_robot -param robot_description"/>
 
 	<include file="$(find sample_robot_2d_navigation)/launch/move_base.launch" />
